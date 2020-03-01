@@ -18,8 +18,8 @@ class TestProcessTree(TestCase):
         num_op_nodes = 2
         init_val = 10
         process_tree = ProcessTree(num_op_nodes, init_val)
-        process_tree.op_map[1].set_op(double_func)
-        process_tree.op_map[2].set_op(minus_two_func)
+        process_tree.op_level_map[1].set_op(double_func)
+        process_tree.op_level_map[2].set_op(minus_two_func)
 
         result = process_tree.recalc_tree()
 

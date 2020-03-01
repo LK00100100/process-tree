@@ -17,14 +17,14 @@ class ProcessTree:
         # there is one OpNode per level.
         # the lowest OpNode is level 1.
         # map[level_num] => OpNode
-        self.op_map = {}  # type: dict[int, OpNode]
+        self.op_level_map = {}  # type: dict[int, OpNode]
 
         if num_op_nodes < 0:
             raise ValueError("Number of op nodes must be > 0")
 
         self.__init_op_nodes(num_op_nodes, initial_node_val)
 
-        self.root_op_node = self.op_map[num_op_nodes]  # type OpNode
+        self.root_op_node = self.op_level_map[num_op_nodes]  # type OpNode
 
     def __init_op_nodes(self, num_op_nodes, initial_node_val):
         """
@@ -37,14 +37,14 @@ class ProcessTree:
         # first OpNode
         init_val_node = InitNode(initial_node_val)
         first_op_node = OpNode(init_val_node)
-        self.op_map[1] = first_op_node
+        self.op_level_map[1] = first_op_node
 
         prev_op_node = first_op_node
 
         # more OpNodes
         for i in range(1, num_op_nodes):
             op_node = OpNode(prev_op_node)
-            self.op_map[i + 1] = op_node
+            self.op_level_map[i + 1] = op_node
 
             prev_op_node = op_node
 
