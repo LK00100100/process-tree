@@ -50,3 +50,16 @@ class TestProcessTree(TestCase):
         expected_val = 80
         actual_result = process_tree.op_level_map[3].get_result()
         self.assertEqual(expected_val, actual_result)
+
+    def test_should_print_tree(self):
+        # init tree
+        num_op_nodes = 3
+        init_val = 10
+        process_tree = ProcessTree(num_op_nodes, init_val)
+        process_tree.op_level_map[1].set_op(double_func)
+        process_tree.op_level_map[2].set_op(minus_two_func)
+        process_tree.op_level_map[3].set_op(double_func)
+
+        process_tree.recalc_tree()
+
+        process_tree.print_tree()

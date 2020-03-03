@@ -26,6 +26,8 @@ class ProcessTree:
 
         self.root_op_node = self.op_level_map[num_op_nodes]  # type OpNode
 
+        self.num_op_nodes = num_op_nodes
+
     def __init_op_nodes(self, num_op_nodes, initial_node_val):
         """
         Creates one OpNode per level
@@ -70,8 +72,13 @@ class ProcessTree:
 
     def print_tree(self):
         """
-        Print an actual tree?
+        Print the tree
         Print a list?
         :return:
         """
-        raise NotImplementedError("REEEE")
+        for i in range(self.num_op_nodes, 0, -1):
+            op_node = self.op_level_map[i]
+            print(op_node)
+            print("^")
+
+        print(self.op_level_map[1].child_op_node)

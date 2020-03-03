@@ -13,3 +13,6 @@ class InitNode(ProcessNode):
 
     def calculate_result(self):
         return self.val
+
+    def __str__(self):
+        return str(self.val)

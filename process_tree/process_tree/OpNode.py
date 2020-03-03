@@ -11,6 +11,8 @@ class OpNode(ProcessNode):
     def __init__(self, child_op_node):
         ProcessNode.__init__(self)
         self.op = None  # some function
+
+        # OpNode or InitNode
         self.child_op_node = child_op_node  # type: ProcessNode
         self.result_node = ResultNode()
         self.parent = None  # type: OpNode
@@ -85,3 +87,6 @@ class OpNode(ProcessNode):
         self.needs_recalc = False
 
         return op_result
+
+    def __str__(self):
+        return "{} -> Result: {}".format(self.op.__name__, self.get_result())
