@@ -20,9 +20,6 @@ class OpNode(ProcessNode):
         # we don't want to recalc the same thing million times
         self.needs_recalc = True
 
-    def get_result(self):
-        return self.result_node.val
-
     def set_parent(self, parent):
         """
         Sets the parent node
@@ -89,4 +86,4 @@ class OpNode(ProcessNode):
         return op_result
 
     def __str__(self):
-        return "{} -> Result: {}".format(self.op.__name__, self.get_result())
+        return "{} -> Result: {}".format(self.op.__name__, self.calculate_result())

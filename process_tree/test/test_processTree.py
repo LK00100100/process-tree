@@ -48,7 +48,7 @@ class TestProcessTree(TestCase):
 
         # ASSERT again
         expected_val = 80
-        actual_result = process_tree.op_level_map[3].get_result()
+        actual_result = process_tree.op_level_map[3].calculate_result()
         self.assertEqual(expected_val, actual_result)
 
     def test_should_print_tree(self):
