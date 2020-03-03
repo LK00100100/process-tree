@@ -46,6 +46,8 @@ class ProcessTree:
             op_node = OpNode(prev_op_node)
             self.op_level_map[i + 1] = op_node
 
+            prev_op_node.set_parent(op_node)
+
             prev_op_node = op_node
 
     def parse_json(self, json_path):
