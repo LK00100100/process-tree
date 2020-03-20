@@ -27,6 +27,18 @@ class TestProcessTree(TestCase):
         expected_val = 18
         self.assertEqual(expected_val, result)
 
+    def test_should_init_tree_with_one_function_correctly(self):
+        # init tree
+        num_op_nodes = 2
+        init_val = 11
+        process_tree = ProcessTree(num_op_nodes, init_val, double_func)
+
+        result = process_tree.recalc_tree()
+
+        # ASSERT
+        expected_val = 44
+        self.assertEqual(expected_val, result)
+
     def test_should_update_all_tree_correctly(self):
         # init tree
         num_op_nodes = 3

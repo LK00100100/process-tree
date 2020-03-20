@@ -15,6 +15,7 @@ class OpNode(ProcessNode):
         # OpNode or InitNode
         self.child_op_node = child_op_node  # type: ProcessNode
         self.result_node = ResultNode()
+        # noinspection PyTypeChecker
         self.parent = None  # type: OpNode
 
         # we don't want to recalc the same thing million times
